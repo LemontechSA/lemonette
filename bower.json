@@ -8,7 +8,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://bitbucket.org/lemontech/legaltech-frontend-lib.git"
+    "url": "git://bitbucket.org/lemontech/lemontend.git"
   },
   "description": "Helpers and utility Classes for frontend (Backbone/Marionette/Handlebars) development",
   "main": "dist/scripts/lemontend.js",
