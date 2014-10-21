@@ -1,0 +1,45 @@
+{
+  "name": "lemontend",
+  "version": "0.0.1",
+  "description": "Helpers and utility Classes for frontend (Backbone/Marionette/Handlebars) development",
+  "repository": {
+    "type" : "svn", 
+    "url" : "http://v8.googlecode.com/svn/trunk/"
+  },
+  "devDependencies": {
+    "glob": "*",
+    "matchdep": "*",
+    "source-map": "*",
+    "grunt": "~0.4.2",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-coffee": "~0.10.1",
+    "grunt-contrib-concat": "^0.4.0",
+    "grunt-contrib-copy": "^0.5.0",
+    "grunt-contrib-cssmin": "^0.9.0",
+    "grunt-contrib-handlebars": "^0.8.0",
+    "grunt-contrib-jshint": "~0.6.3",
+    "grunt-contrib-jst": "^0.6.0",
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-contrib-watch": "~0.4.4",
+    "grunt-haml": "~0.9.0",
+    "grunt-sprockets-directives": "^0.1.0"
+  },
+  "dependencies": {
+    "glob": "*",
+    "matchdep": "*",
+    "source-map": "*",
+    "grunt": "~0.4.2",
+    "grunt-contrib-clean": "^0.5.0",
+    "grunt-contrib-coffee": "~0.10.1",
+    "grunt-contrib-concat": "^0.4.0",
+    "grunt-contrib-copy": "^0.5.0",
+    "grunt-contrib-cssmin": "^0.9.0",
+    "grunt-contrib-handlebars": "^0.8.0",
+    "grunt-contrib-jshint": "~0.6.3",
+    "grunt-contrib-jst": "^0.6.0",
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-contrib-watch": "~0.4.4",
+    "grunt-haml": "~0.9.0",
+    "grunt-sprockets-directives": "^0.1.0"
+  }
+}

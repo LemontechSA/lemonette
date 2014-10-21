@@ -1,0 +1,46 @@
+{
+  "name": "lemontend",
+  "version": "0.0.1",
+  "authors": [
+    "Abraham (abx) Barrera",
+    "Camilo (cavg) Verdugo",
+    "Javier (ameboide) López"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://bitbucket.org/lemontech/legaltech-frontend-lib.git"
+  },
+  "description": "Helpers and utility Classes for frontend (Backbone/Marionette/Handlebars) development",
+  "main": "dist/scripts/lemontend.js",
+  "keywords": [
+    "lemontend",
+    "backbone",
+    "marionette",
+    "handlebars",
+    "frontend"
+  ],
+  "license": "Apache",
+  "homepage": "http://www.lemontech.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "2.0.3",
+    "underscore": "*",
+    "backbone": "*",
+    "backbone.marionette": "~1.7.3",
+    "handlebars": "~1.3.0",
+    "handlebars-form-helpers": "~0.1.3",
+    "backgrid": "~0.3.5",
+    "select2": "~3.4.8",
+    "backbone.paginator": "~2.0.0",
+    "backgrid-paginator": "git://github.com/wyuenho/backgrid-paginator.git#1730e0231c51d4606945a3d3492213ec37b9dcdc",
+    "momentjs": "~2.8.0",
+    "backbone-filtered-collection": "~0.3.7"
+  }
+}
