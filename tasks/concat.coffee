@@ -18,3 +18,14 @@ module.exports = (grunt) ->
       ]
       dest: "<%= grunt.option('dest') %>/scripts/vendor.js"
     ]
+
+  spell:
+    files: [
+      src: [
+        'app/scripts/libs/googiespell/AJS.js'
+        'app/scripts/libs/googiespell/cookiesupport.js'
+        'app/scripts/libs/googiespell/googiespell_multiple.js'
+        'app/scripts/libs/googiespell/googiespell.js'
+      ]
+      dest: "<%= grunt.option('dest') %>/scripts/lemontend.spell.js" 
+    ]

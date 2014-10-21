@@ -3,7 +3,7 @@ do (Backbone) ->
   _.extend Backbone.Marionette.Application::,
 
     defaultData:
-      host: 'localct.dev'
+      host: 'localhost'
       api_url: 'http://localhost:3000'
       ws_endpoint: 'http://localhost:3000/faye'
       current_user: null,
