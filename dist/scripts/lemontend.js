@@ -1059,8 +1059,7 @@
       function TrackableRouter(options) {
         TrackableRouter.__super__.constructor.apply(this, arguments);
         this.on('route', function(page, options) {
-          console.log('tracking route ' + page);
-          return console.log('tracking options ' + options);
+          return ga('send', 'pageview', page, page);
         });
         return;
       }

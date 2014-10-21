@@ -5,7 +5,5 @@
     constructor: (options) ->
       super
       @on 'route', (page, options) ->
-        console.log 'tracking route ' + page
-        console.log 'tracking options ' + options
+        ga 'send', 'pageview', page, page
       return
-
