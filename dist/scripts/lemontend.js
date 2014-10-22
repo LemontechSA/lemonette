@@ -1070,6 +1070,90 @@
   });
 
   this.App.module("Views", function(Views, App, Backbone, Marionette, $, _) {
+    return Views.Trackable = (function() {
+      function Trackable() {}
+
+      Trackable.prototype.trackables = {};
+
+      Trackable.prototype.trackingValues = {};
+
+      Trackable.prototype.trackingLabels = {};
+
+      Trackable.prototype.trackingNoninteractions = {};
+
+      Trackable.prototype.pushEvent = function(event) {
+        return this.trackEvent(event.category, event.action, event.label, event.value, event.noninteraction);
+      };
+
+      Trackable.prototype.trackEvent = function(category, action, opt_label, opt_value) {
+        return ga('send', 'event', category, action, opt_label);
+      };
+
+      Trackable.prototype.setTrackingValue = function(action, value) {
+        return this.trackingValues[action] = value;
+      };
+
+      Trackable.prototype.setTrackingLabel = function(action, label) {
+        return this.trackingLabels[action] = label;
+      };
+
+      Trackable.prototype.setTrackingNoninteraction = function(action, noninteraction) {
+        return this.trackingNoninteractions[action] = noninteraction;
+      };
+
+      Trackable.prototype.getSelector = function(event) {
+        var selector;
+        if (!event) {
+          return '';
+        }
+        if (event.target && event.target && $(event.target).data('track')) {
+          return $(event.target).data('track');
+        }
+        return selector = event.target.id ? '#' + event.target.id : event.target.tagName + ' ' + event.target.className;
+      };
+
+      Trackable.prototype.getValue = function(event) {
+        if (event && event.target && event.target && $(event.target).data('track-value')) {
+          return $(event.target).data('track-value');
+        }
+        return '';
+      };
+
+      Trackable.prototype.getEventName = function(event) {
+        return (event ? event.type || '' : 'system');
+      };
+
+      Trackable.prototype.track = function(options) {
+        var category, event_name, evt, selector;
+        event_name = this.getEventName(options['event']);
+        options['label'] = options['label'] || this.trackingLabels[options['action']];
+        options['action'] = options['action'] || event_name;
+        options['value'] = options['value'] || this.getValue(options['event']);
+        selector = this.getSelector(options['event']);
+        category = this.trackName || this.constructor.name;
+        if (!options['label']) {
+          options['label'] = "" + event_name + " " + selector;
+        }
+        evt = {
+          category: category,
+          action: options['action'],
+          label: options['label'],
+          value: options['value'] ? options['value'] : '',
+          timestamp: Date.now()
+        };
+        return setTimeout((function(_this) {
+          return function() {
+            return _this.pushEvent(evt);
+          };
+        })(this));
+      };
+
+      return Trackable;
+
+    })();
+  });
+
+  this.App.module("Views", function(Views, App, Backbone, Marionette, $, _) {
     return _.extend(Marionette.View.prototype, {
       genericThing: function() {
         return console.log('generic thing for views :)');
