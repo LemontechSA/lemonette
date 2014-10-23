@@ -17,7 +17,7 @@
     seconds %= 3600
     minutes = Math.floor(seconds / 60)
     seconds %= 60
-
+    seconds = parseInt(seconds)
     hours = "0#{hours}" if hours < 10
     minutes = "0#{minutes}" if minutes < 10
     seconds = "0#{seconds}" if seconds < 10

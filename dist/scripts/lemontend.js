@@ -885,6 +885,7 @@
       seconds %= 3600;
       minutes = Math.floor(seconds / 60);
       seconds %= 60;
+      seconds = parseInt(seconds);
       if (hours < 10) {
         hours = "0" + hours;
       }
