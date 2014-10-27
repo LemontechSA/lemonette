@@ -75,7 +75,7 @@
       select.find('option').remove()
       select.append($('<option/>',
         val: ''
-        text: 'Seleccione...'
+        text: ''
       ))
 
       $.each(values, (index, value) ->
