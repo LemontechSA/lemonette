@@ -935,17 +935,17 @@
   "use strict";
 
   this.App.module("Notifications", (function(Notifications, App, Backbone, Marionette, $, _, toastr) {
+    var Toast;
     Notifications.addInitializer(function() {
       App.commands.setHandler('alert.show', function(options) {
         var opts;
         opts = {
-          positionClass: 'toast-top-center',
+          css: 'toast-top-full-width',
           type: options.type || 'warning',
           message: options.message || 'You must provide a message',
           success: options.success,
           showMethod: 'slideDown',
-          newestOnTop: true,
-          title: "Información Importante"
+          title: options.title || "Información Importante"
         };
         $.extend(opts, options);
         return Notifications.showMessage(opts);
@@ -953,39 +953,39 @@
       return App.commands.setHandler('info.show', function(options) {
         var opts;
         opts = {
-          positionClass: 'toast-top-center',
+          css: 'toast-top-full-width',
           type: options.type || 'info',
           message: options.message || 'You must provide a message',
-          success: options.success,
-          newestOnTop: false
+          success: options.success
         };
         $.extend(opts, options);
         return Notifications.showMessage(opts);
       });
     });
+    Toast = function(type, css, title, msg) {
+      this.type = type;
+      this.css = css;
+      this.msg = msg;
+      this.title = title;
+    };
     return Notifications.showMessage = function(options) {
+      var t;
       if (options == null) {
         options = {};
       }
-      toastr.options.positionClass = options.positionClass;
-      toastr.options.extendedTimeOut = options.extendedTimeOut;
-      toastr.options.timeOut = options.timeOut;
-      toastr.options.hideDuration = options.hideDuration || 200;
-      toastr.options.extendedTimeOut = options.extendedTimeOut || 100000;
+      t = new Toast(options.type, options.css, options.title, options.msg);
+      toastr.options.extendedTimeOut = 0;
       toastr.options.timeOut = options.timeOut || 5000;
-      toastr.options.showDuration = options.showDuration || 200;
-      toastr.options.closeButton = options.closeButton || true;
-      toastr.options.newestOnTop = options.newestOnTop;
-      toastr.options.showMethod = options.showMethod;
+      toastr.options.showMethod = options.showMethod || "slideDown";
+      toastr.options.hideMethod = options.hideMethod || 'slideUp';
+      toastr.options.positionClass = t.css || "toast-top-full-width";
       toastr.options.onclick = function() {
         toastr.clear();
         if (options.onclick) {
           return options.onclick();
         }
       };
-      toastr.options.hideMethod = options.hideMethod || 'slideUp';
-      toastr.clear();
-      toastr[options.type](options.message, options.title);
+      toastr[t.type](t.msg, t.title);
       return $('.toast .action').on('click', function() {
         var callback;
         toastr.clear();
