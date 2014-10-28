@@ -22,24 +22,25 @@
       $.extend opts, options
       Notifications.showMessage(opts)
 
-  Toast = (type, css, title, msg) ->
+  Toast = (type, css, title, message) ->
     @type = type
     @css = css
-    @msg = msg
+    @message = message
     @title = title
     return
   
   Notifications.showMessage = (options = {}) ->
-    t = new Toast(options.type, options.css, options.title, options.msg)
+    t = new Toast(options.type, options.css, options.title, options.message)
     toastr.options.extendedTimeOut = 0
     toastr.options.timeOut = options.timeOut || 5000
     toastr.options.showMethod = options.showMethod || "slideDown"
     toastr.options.hideMethod = options.hideMethod || 'slideUp'
+    toastr.options.hideDuration = 200
     toastr.options.positionClass = t.css || "toast-top-full-width"
     toastr.options.onclick = ->
       toastr.clear()  
       options.onclick() if options.onclick
-    toastr[t.type] t.msg, t.title
+    toastr[t.type] t.message, t.title
     $('.toast .action').on 'click', ->
       toastr.clear()
       callback = $(this).data('callback')
