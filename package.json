@@ -1,6 +1,6 @@
 {
   "name": "lemontend",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Helpers and utility Classes for frontend (Backbone/Marionette/Handlebars) development",
   "repository": {
     "type": "git",
