@@ -2,6 +2,7 @@ module.exports = (grunt) ->
   vendor:
     files: [
       src: [
+        'bower_components/jquery/jquery.min.js'
         'bower_components/underscore/underscore.js'
         'bower_components/backbone/backbone.js'
         'bower_components/backbone.babysitter/lib/backbone.babysitter.js'
@@ -15,6 +16,8 @@ module.exports = (grunt) ->
         'bower_components/backgrid/lib/backgrid.min.js'
         'bower_components/backgrid-paginator/backgrid-paginator.js'
         'bower_components/momentjs/min/moment-with-locales.min.js'
+        'bower_components/toastr/toastr.min.js'
+        'bower_components/intro.js/minified/intro.min.js'
       ]
       dest: "<%= grunt.option('dest') %>/scripts/vendor.js"
     ]
