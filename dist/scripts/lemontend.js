@@ -906,6 +906,33 @@
       hhmmss = Utils.secondsToHHMMSS(minutes * 60);
       return "" + hhmmss.hh + ":" + hhmmss.mm;
     };
+    Utils.minutesToFormat = function(minutes, format) {
+      var hh, hhmmss, hours, hours_f, minutes_f, mm, separator, time_f;
+      hhmmss = Utils.secondsToHHMMSS(minutes * 60);
+      hh = "" + hhmmss.hh;
+      mm = "" + hhmmss.mm;
+      time_f = format.split(/(:|\s)/);
+      hours_f = time_f.shift();
+      minutes_f = time_f.pop();
+      separator = time_f.join('');
+      hours = Utils.fixTimeAndFormat(hh, hours_f);
+      minutes = Utils.fixTimeAndFormat(mm, minutes_f);
+      format = "" + hours.format + separator + minutes.format;
+      return format.replace('%H', hours.time).replace('%M', minutes.time);
+    };
+    Utils.fixTimeAndFormat = function(time, format) {
+      if (format.search(/0+\S/) !== -1) {
+        if (time.length > 1) {
+          format = format.replace(/0/g, '');
+        }
+      } else {
+        time = time.replace(/^0/, '');
+      }
+      return {
+        time: time,
+        format: format
+      };
+    };
     return Utils.showHelp = function(step, force) {
       var guide;
       if (force == null) {

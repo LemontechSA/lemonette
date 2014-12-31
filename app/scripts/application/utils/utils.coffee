@@ -32,6 +32,28 @@
     hhmmss = Utils.secondsToHHMMSS(minutes * 60)
     "#{hhmmss.hh}:#{hhmmss.mm}"
 
+  Utils.minutesToFormat = (minutes, format) ->
+    hhmmss = Utils.secondsToHHMMSS(minutes * 60)
+    hh = "#{hhmmss.hh}"
+    mm = "#{hhmmss.mm}"
+    time_f = format.split(/(:|\s)/)
+    hours_f = time_f.shift()
+    minutes_f = time_f.pop()
+    separator = time_f.join('')
+    hours = Utils.fixTimeAndFormat(hh, hours_f)
+    minutes = Utils.fixTimeAndFormat(mm, minutes_f)
+    format = "#{hours.format}#{separator}#{minutes.format}"
+
+    format.replace('%H', hours.time).replace('%M', minutes.time)
+
+  Utils.fixTimeAndFormat = (time, format) ->
+    if format.search(/0+\S/) != -1
+      format = format.replace(/0/g, '') if time.length > 1
+    else
+      time = time.replace(/^0/, '')
+
+    {time: time, format: format}
+
   Utils.showHelp = (step, force = false) ->
     return if @showing and not force
     return if $.cookie("visited#{step}") and not force
