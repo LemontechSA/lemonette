@@ -1,10 +1,11 @@
 {
   "name": "lemontend",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "authors": [
     "Abraham (abx) Barrera",
     "Camilo (cavg) Verdugo",
     "Javier (ameboide) López"
+    "Jorge (ajeo) Soto"
   ],
   "repository": {
     "type": "git",
