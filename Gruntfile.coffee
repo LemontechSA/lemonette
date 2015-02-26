@@ -35,6 +35,7 @@ module.exports = (grunt) ->
     'haml:templates'
     'handlebars'
     'clean'
+    'codo'
   ]
 
   buildEnvironment 'production', [

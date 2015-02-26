@@ -1,51 +1,66 @@
-do (Backbone) ->
+window.Lemonette = @Lemonette = {}
 
-  _.extend Backbone.Marionette.Application::,
+class @Lemonette.Application extends Backbone.Marionette.Application
+  defaultData:
+    host: 'localhost'
+    api_url: 'http://localhost:3000'
+    ws_endpoint: 'http://localhost:3000/faye'
+    current_user: null,
+    api_token: null,
+    default_lang: 'es'
+  
+  constructor: ->
+    super
+    @createModules()
+  
+  ###
+  Best way to extend Marionette with an Instance of App
+  ###
+  createModules: ->
+    @module 'Controllers', Lemonette.ControllersModule
+    @module 'DateHelper', Lemonette.DateHelperModule
+    @module 'Notifications', Lemonette.NotificationsModule
+    @module 'Routers', Lemonette.RoutersModule
+    @module 'Shared', Lemonette.SharedModule
+    @module 'Utils', Lemonette.UtilsModule
+    @module 'Views', Lemonette.ViewsModule
 
-    defaultData:
-      host: 'localhost'
-      api_url: 'http://localhost:3000'
-      ws_endpoint: 'http://localhost:3000/faye'
-      current_user: null,
-      api_token: null,
-      default_lang: 'es'
+  bootstrap: (key) ->
+    data = window.bootstrap_data || @defaultData
+    data[key]
 
-    bootstrap: (key) ->
-      data = window.bootstrap_data || @defaultData
-      data[key]
+  navigate: (route, options = {}) ->
+    Backbone.history.navigate route, options
 
-    navigate: (route, options = {}) ->
-      Backbone.history.navigate route, options
+  getCurrentRoute: ->
+    frag = Backbone.history.fragment
+    if _.isEmpty(frag) then null else frag
 
-    getCurrentRoute: ->
-      frag = Backbone.history.fragment
-      if _.isEmpty(frag) then null else frag
+  startHistory: ->
+    if Backbone.history
+      Backbone.history.start()
 
-    startHistory: ->
-      if Backbone.history
-        Backbone.history.start()
+  register: (instance, id) ->
+    @_registry ?= {}
+    @_registry[id] = instance
 
-    register: (instance, id) ->
-      @_registry ?= {}
-      @_registry[id] = instance
+  unregister: (instance, id) ->
+    delete @_registry[id]
 
-    unregister: (instance, id) ->
-      delete @_registry[id]
+  resetRegistry: ->
+    oldCount = @getRegistrySize()
+    for key, controller of @_registry
+      controller.region.close()
+    msg = "There were #{oldCount} controllers in the registry, there are now #{@getRegistrySize()}"
+    if @getRegistrySize() > 0 then console.warn(msg, @_registry) else console.log(msg)
 
-    resetRegistry: ->
-      oldCount = @getRegistrySize()
-      for key, controller of @_registry
-        controller.region.close()
-      msg = "There were #{oldCount} controllers in the registry, there are now #{@getRegistrySize()}"
-      if @getRegistrySize() > 0 then console.warn(msg, @_registry) else console.log(msg)
+  getRegistrySize: ->
+    _.size @_registry
 
-    getRegistrySize: ->
-      _.size @_registry
-
-    log: -> (message, domain, level) ->
-      return if @debug && @debug < level
-      if typeof message isnt "string"
-        console.log "Object(" + domain + ")", message
-      else
-        console.log ((if domain or false then "(" + domain + ") " else "")) + message
+  log: (message, domain, level) ->
+    return if @debug && @debug < level
+    if typeof message isnt "string"
+      console.log "Object(" + domain + ")", message
+    else
+      console.log ((if domain or false then "(" + domain + ") " else "")) + message
 

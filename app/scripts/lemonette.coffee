@@ -1,0 +1,10 @@
+#= require_tree backbone
+#= require_tree application/controllers
+#= require_tree application/date
+#= require_tree application/shared
+#= require_tree application/utils
+#= require_tree application/notifications
+#= require_tree application/routers
+#= require_tree application/views
+#= require_tree plugins
+#= require_tree handlebars

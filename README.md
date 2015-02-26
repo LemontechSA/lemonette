@@ -1,5 +1,7 @@
-Lemontend
+Lemonette
 =========
+
+A Lemon spiced Marionette Application Library.
 
 * npm install
 * bower install
@@ -9,4 +11,3 @@ Generate versions for distribution
 ----------------------------------
 
 * grunt dist
-

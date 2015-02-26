@@ -1,20 +1,21 @@
 {
-  "name": "lemontend",
-  "version": "0.1.0",
+  "name": "lemonette",
+  "version": "1.0.0",
   "authors": [
     "Abraham (abx) Barrera",
     "Camilo (cavg) Verdugo",
     "Javier (ameboide) López",
-    "Jorge (ajeo) Soto"
+    "Jorge (ajeo) Soto",
+    "Daniel (dochoaj) Ochoa"
   ],
   "repository": {
     "type": "git",
-    "url": "git://bitbucket.org/lemontech/lemontend.git"
+    "url": "git://bitbucket.org/lemontech/lemonette.git"
   },
-  "description": "Helpers and utility Classes for frontend (Backbone/Marionette/Handlebars) development",
-  "main": "dist/scripts/lemontend.min.js",
+  "description": "A Lemon spiced Marionette Application Library",
+  "main": "dist/scripts/lemonette.min.js",
   "keywords": [
-    "lemontend",
+    "lemonette",
     "backbone",
     "marionette",
     "handlebars",
@@ -46,7 +47,6 @@
     "backbone-filtered-collection": "~0.3.7",
     "intro.js": "~0.9.0",
     "jquery.cookie": "~1.4.1",
-    "toastr": "~2.0.3",
-    "momentjs": "~2.8.0"
+    "toastr": "~2.0.3"
   }
 }
