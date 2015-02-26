@@ -29,5 +29,15 @@ Usage
 	App.start()
 ```
 
+Noy your Marionette Application has the following Modules:
+
+* Controllers
+* DateHelper
+* Notifications:
+* Routers
+* Shared
+* Utils
+* Views
+
 Enjoy !
 
