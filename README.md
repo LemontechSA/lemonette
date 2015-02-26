@@ -11,3 +11,23 @@ Generate versions for distribution
 ----------------------------------
 
 * grunt dist
+
+
+Usage
+-----
+
+* Add to bower.json 
+
+	"limonette": "git@bitbucket.org:lemontech/limonette.git#master"
+
+* Bower Install 
+
+* Add every prerequisite installed by Lemonette and.
+
+```
+	App = new Lemonette.Application()
+	App.start()
+```
+
+Enjoy !
+
