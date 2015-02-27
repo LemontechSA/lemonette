@@ -43,11 +43,90 @@
 <ul>
 <li>grunt dist</li>
 </ul>
-
+<h2 id="usage">Usage</h2>
+<ul>
+<li><p>Add to bower.json </p><p>&quot;limonette&quot;: &quot;git@bitbucket.org:lemontech/limonette.git#master&quot;</p></li>
+<li><p>Bower Install </p></li>
+<li><p>Add every prerequisite installed by Lemonette and the library</p></li>
+</ul>
+<pre><code>  &lt;script src=&quot;bower_components/libraries.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;bower_components/lemonette.spell.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;bower_components/lemonette.js&quot;&gt;&lt;/script&gt;
+    &lt;script src=&quot;scripts/app.js&quot;&gt;&lt;/script&gt;
+</code></pre><ul>
+<li>In app.coffee:</li>
+</ul>
+<pre><code>  App = new Lemonette.Application()
+  App.start()
+</code></pre><p>Now your Marionette Application has the following Modules:</p><h3 id="controllers">Controllers</h3><p>Base controllers with new methods:</p><ul>
+<li><p>show Method:</p><pre><code>class MyController extends App.Controllers.BaseController
+  initialize: -&gt;
+    layout = new App.Views.ItemView()
+    @show layout
+</code></pre></li>
+</ul>
+<h3 id="datehelper">DateHelper</h3><p>New Date Class with steroids</p><ul>
+<li><p>D: </p><pre><code>  d = new App.DateHelper.D()
+  # d = new App.DateHelper.D(&lt;Date&gt;)
+  console.log d.isToday() # =&gt; true
+  console.log d.toString() # =&gt; 2015-02-26
+  console.log d.startOfWeek() # =&gt; 2015-02-23
+  console.log d.endOfWeek() # =&gt; 2015-03-01
+</code></pre></li>
+</ul>
+<h3 id="notifications">Notifications</h3>
+<ul>
+<li><p>ShowAlert: </p><pre><code>App.execute &#39;alert.show&#39;, {title: &#39;No autorizado&#39;, message: &#39;No tienes los privilegios suficientes&#39;
+</code></pre></li>
+<li><p>ShowInfo: </p><pre><code>App.execute &#39;info.show&#39;, {title: &#39;Guardar Cliente&#39;, message: &#39;El Cliente ha sido actualizado con éxito&#39;
+</code></pre><h3 id="routers">Routers</h3><p>Spiced Routers</p></li>
+<li><p>TrackableRouter: A router that sends pageview to GoogleAnalytics when a route is fired.</p><pre><code>class MyRoute extends App.Routres.TrackableRouter 
+  appRoutes:
+    &quot;myroute&quot;:  &quot;mymethod&quot;
+</code></pre></li>
+</ul>
+<h3 id="shared">Shared</h3>
+<ul>
+<li><strong>AutoFillable</strong>: fill selects and models from a view</li>
+<li><strong>CacheableCollection</strong>: A Backbone.Collection with localStorage caché, but synced with server API.</li>
+<li><strong>LiveCollection</strong>: A Backbone.Collection with sync vía Websocket channel. </li>
+</ul>
+<h3 id="utils">Utils</h3>
+<ul>
+<li>SpellChecker: <code>speller = App.Utils.SpellChecker(&#39;description&#39;)</code></li>
+<li><p>secondsToHHMMSS: </p><pre><code>  object = App.Utils.secondsToHHMMSS(3650)
+  console.log object.hh # =&gt; &quot;01&quot;
+  console.log object.mm # =&gt; &quot;00&quot;
+  console.log object.ss # =&gt; &quot;50&quot;
+</code></pre></li>
+<li>minutesToHHMM</li>
+<li>minutesToFormat</li>
+<li>showHelp: Show contextual help for a view.</li>
+</ul>
+<h3 id="views">Views</h3>
+<ul>
+<li><strong>Trackable</strong>: send events to google analytics</li>
+<li><strong>Layout</strong></li>
+<li><strong>ItemView</strong></li>
+<li><strong>CollectionView</strong></li>
+<li><strong>CompositeView</strong></li>
+<li><strong>BackboneView</strong> </li>
+</ul>
+<pre><code>  class MyView extends App.Views.Trackable
+    events:
+      &#39;click .search&#39;: &#39;search&#39;
+      &#39;click .excel&#39;: &#39;excel&#39;
+      &#39;click .edit&#39; : &#39;editEvent&#39;
+    trackables:
+      &#39;excel&#39;: &#39;click&#39;
+      &#39;editEvent&#39;: &#39;click&#39;
+    categoryName: &#39;EventFilters&#39;
+</code></pre><p>Enjoy !
+All documentation of modules in: <a href="http://bitbucket.org/lemontech/limonette/dist/docs">http://bitbucket.org/lemontech/limonette/dist/docs</a></p>
       </div>
     </div>
     <div id='footer'>
-  February 26, 15 20:29:58 by
+  February 27, 15 16:32:06 by
   <a href='https://github.com/coffeedoc/codo' title='CoffeeScript API documentation generator'>
     Codo
   </a>
