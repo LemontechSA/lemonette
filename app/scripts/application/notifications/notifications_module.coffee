@@ -95,5 +95,7 @@ class @Lemonette.NotificationsModule extends Lemonette.Module
   Register commadnds for acces to show alert and show info through Application
   ###
   onStart: ->
-    @App.commands.setHandler 'alert.show', @showAlert
-    @App.commands.setHandler 'info.show', @showInfo
+    @App.commands.setHandler 'alert.show', (options) =>
+      @showAlert options
+    @App.commands.setHandler 'info.show', (options) => 
+      @showInfo options

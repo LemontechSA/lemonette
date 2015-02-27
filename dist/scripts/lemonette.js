@@ -349,6 +349,7 @@
 
     Module.prototype.initialize = function(options, module, app) {
       module.App = app;
+      this.App = app;
       return Lemonette.InstanceApp = app;
     };
 
@@ -1455,8 +1456,16 @@
      */
 
     NotificationsModule.prototype.onStart = function() {
-      this.App.commands.setHandler('alert.show', this.showAlert);
-      return this.App.commands.setHandler('info.show', this.showInfo);
+      this.App.commands.setHandler('alert.show', (function(_this) {
+        return function(options) {
+          return _this.showAlert(options);
+        };
+      })(this));
+      return this.App.commands.setHandler('info.show', (function(_this) {
+        return function(options) {
+          return _this.showInfo(options);
+        };
+      })(this));
     };
 
     return NotificationsModule;
