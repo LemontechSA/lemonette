@@ -18,7 +18,7 @@ Usage
 
 * Add to bower.json 
 
-	"limonette": "git@bitbucket.org:lemontech/limonette.git#master"
+	"lemonette": "git@bitbucket.org:lemontech/lemonette.git#master"
 
 * Bower Install 
 
@@ -29,11 +29,11 @@ Usage
 	App.start()
 ```
 
-Noy your Marionette Application has the following Modules:
+Now your Marionette Application has the following Modules:
 
 * Controllers
 * DateHelper
-* Notifications:
+* Notifications
 * Routers
 * Shared
 * Utils
