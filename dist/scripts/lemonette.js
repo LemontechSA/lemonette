@@ -1302,7 +1302,7 @@
       return this.showing = 1;
     };
 
-    UtilsModule.prototype.addInitializer = function() {
+    UtilsModule.prototype.onStart = function() {
       return $(document).ajaxError(this.ajaxError);
     };
 
@@ -1454,7 +1454,7 @@
     Register commadnds for acces to show alert and show info through Application
      */
 
-    NotificationsModule.prototype.addInitializer = function() {
+    NotificationsModule.prototype.onStart = function() {
       this.App.commands.setHandler('alert.show', this.showAlert);
       return this.App.commands.setHandler('info.show', this.showInfo);
     };
