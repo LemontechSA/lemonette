@@ -112,7 +112,7 @@ class @Lemonette.UtilsModule extends Lemonette.Module
     $.cookie "visited#{step}", 1
     @showing = 1
 
-  addInitializer: ->
+  onStart: ->
     $(document).ajaxError @ajaxError
   
   ajaxError: (event, jqXHR, ajaxSettings, thrownError) ->
