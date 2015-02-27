@@ -645,17 +645,14 @@
    */
 
   this.Lemonette.AutoFillable = (function() {
-    function AutoFillable() {
-      this.App = Lemonette.InstanceApp;
-      AutoFillable.__super__.constructor.apply(this, arguments);
-    }
+    function AutoFillable() {}
 
     AutoFillable.prototype.fillRelation = function(collection, field_id, relation_id, event, relation_id_value, options) {
       if (options == null) {
         options = {};
       }
       if (typeof collection === 'string') {
-        collection = this.App.Models.collection(collection);
+        collection = Lemonette.InstanceApp.Models.collection(collection);
       }
       collection[relation_id] = event ? $(event.target).val() : relation_id_value;
       return this.fillSelect(collection, field_id, options);
@@ -672,7 +669,7 @@
         prefill: true
       }, options);
       if (typeof collection === 'string') {
-        collection = this.App.Models.collection(collection);
+        collection = Lemonette.InstanceApp.Models.collection(collection);
       }
       url = typeof collection.url === 'function' ? collection.url() : collection.url;
       if (options.persistent && collection.fetchedUrl === url) {

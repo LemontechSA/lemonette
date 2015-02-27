@@ -16,13 +16,10 @@ empower to the view to:
 
 ###
 class @Lemonette.AutoFillable
-  constructor: ->
-    @App = Lemonette.InstanceApp
-    super
-
+ 
   fillRelation: (collection, field_id, relation_id, event, relation_id_value, options = {}) ->
     if typeof(collection) == 'string'
-      collection = @App.Models.collection(collection)
+      collection = Lemonette.InstanceApp.Models.collection(collection)
 
     collection[relation_id] = if event then $(event.target).val() else relation_id_value
     @fillSelect(collection, field_id, options)
@@ -31,7 +28,7 @@ class @Lemonette.AutoFillable
     options = $.extend({persistent: true, cache: true, prefill: true}, options)
 
     if typeof(collection) == 'string'
-      collection = @App.Models.collection(collection)
+      collection = Lemonette.InstanceApp.Models.collection(collection)
 
     url = if typeof collection.url == 'function' then collection.url() else collection.url
 
