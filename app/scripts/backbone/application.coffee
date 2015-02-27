@@ -1,4 +1,4 @@
-window.Lemonette = @Lemonette = {}
+window.Lemonette = Lemonette = {}
 
 class @Lemonette.Application extends Backbone.Marionette.Application
   defaultData:
