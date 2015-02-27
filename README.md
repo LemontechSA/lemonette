@@ -40,4 +40,5 @@ Now your Marionette Application has the following Modules:
 * Views
 
 Enjoy !
+All documentation of modules in: http://bitbucket.org/lemontech/limonette/dist/docs
 
