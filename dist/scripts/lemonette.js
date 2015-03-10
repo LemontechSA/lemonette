@@ -1303,23 +1303,6 @@
       return this.showing = 1;
     };
 
-    UtilsModule.prototype.onStart = function() {
-      return $(document).ajaxError(this.ajaxError);
-    };
-
-    UtilsModule.prototype.ajaxError = function(event, jqXHR, ajaxSettings, thrownError) {
-      try {
-        if (jqXHR.status > 400) {
-          return this.App.execute('alert.show', {
-            title: 'No autorizado',
-            message: JSON.parse(jqXHR.responseText).message
-          });
-        }
-      } catch (_error) {
-        return this.App.log('Ajax Error');
-      }
-    };
-
     return UtilsModule;
 
   })(Lemonette.Module);
