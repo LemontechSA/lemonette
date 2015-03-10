@@ -111,12 +111,3 @@ class @Lemonette.UtilsModule extends Lemonette.Module
       @showing = false
     $.cookie "visited#{step}", 1
     @showing = 1
-
-  onStart: ->
-    $(document).ajaxError @ajaxError
-  
-  ajaxError: (event, jqXHR, ajaxSettings, thrownError) ->
-    try
-      @App.execute('alert.show', {title: 'No autorizado', message: JSON.parse(jqXHR.responseText).message}) if jqXHR.status > 400
-    catch
-      @App.log 'Ajax Error'
