@@ -2363,7 +2363,7 @@ GoogieSpell.prototype.showErrorWindow = function(elm, id) {
         var edit_row = AJS.TR();
         var edit = AJS.TD({'style': 'cursor: default'});
 
-        var edit_input = AJS.INPUT({'class': 'input', 'type': 'text', 'style':'padding-right:50px','value': elm.innerHTML});
+        var edit_input = AJS.INPUT({'class': 'input-spellcheck input', 'type': 'text','value': elm.innerHTML});
         edit_input.googie_action_btn = "1";
 
         var onsub = function () {
@@ -2382,7 +2382,7 @@ GoogieSpell.prototype.showErrorWindow = function(elm, id) {
         };
 
 
-        var ok_pic = AJS.SPAN({'class': 'btn btn-warning btn-small right', 'style': 'margin-top: -29px; margin-right: 5px;'}, AJS.I({'class':'fa fa-check'}), "Ok");
+        var ok_pic = AJS.SPAN({'class': 'btn-spellcheck btn btn-warning btn-small right'}, AJS.I({'class':'fa fa-check'}), "Ok");
         var edit_form = AJS.FORM({'style': 'margin: 0; padding: 0; cursor: default;'}, edit_input, ok_pic);
 
         edit_form.googie_action_btn = "1";
