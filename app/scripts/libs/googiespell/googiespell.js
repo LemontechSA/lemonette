@@ -660,7 +660,6 @@ GoogieSpell.prototype.createEditLayer = function(width, height) {
     this.edit_layer.className = this.text_area.className;
     this.edit_layer.style.border = "1px solid #8B8B8B";
     this.edit_layer.style.backgroundColor = "#FFFCD7";
-    this.edit_layer.style.padding = "7px 1%";
     this.edit_layer.style.margin = "0px";
 
     AJS.setWidth(this.edit_layer, ('100%'));
