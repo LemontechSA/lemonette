@@ -1323,15 +1323,15 @@
     }
 
 
-    /*  
+    /*
       Show an alert toast. Used for errors and warnings
       * This method is accessible via command: *App.execute('alert.show')*
       @private
       @param [Object] options
-      @option options [String] type default: *warning* can be: **error** **warning** 
+      @option options [String] type default: *warning* can be: **error** **warning**
       @option options [String] title of message
-      @option options [String] message 
-      @option options [Function] success callback 
+      @option options [String] message
+      @option options [Function] success callback
       @example
         'alert.show', {title: 'No autorizado', message: JSON.parse(jqXHR.responseText).message}) if jqXHR.status > 400
      */
@@ -1347,19 +1347,18 @@
         title: options.title || "Información Importante"
       };
       $.extend(opts, options);
-      toastr.clear();
       return this.showMessage(opts);
     };
 
 
-    /*  
+    /*
       Show an info toast. Used for success or information feedback
       * This method is accessible via command: *App.execute('info.show')*
       @private
       @param [Object] options
       @option options [String] type default: *info* can be: **success** **info**
       @option options [String] title of message
-      @option options [String] message 
+      @option options [String] message
       @option options [Function] success callback
      */
 
@@ -1395,12 +1394,12 @@
       @param [Object] options
       @option options [String] type [warning, error, info, success]
       @option options [String] title of message
-      @option options [String] message 
+      @option options [String] message
       @option options [Integer] timeOut automatically close at timeOut milliseconds
       @option options [String] showMethod [slideDonw, slideUp, FadeIn, etc]
       @option options [String] hideMethod [slideDonw, slideUp, FadeIn, etc]
       @option options [String] css option for type ex: 'toast-top-full-width'
-      @option options [Function] wherever callback, you need add **data-callback=name** 
+      @option options [Function] wherever callback, you need add **data-callback=name**
               to a button inside toastr [.toast .action]
       @see https://github.com/CodeSeven/toastr
      */
@@ -1410,6 +1409,7 @@
       if (options == null) {
         options = {};
       }
+      toastr.clear();
       t = new this.Toast(options.type, options.css, options.title, options.message);
       toastr.options.extendedTimeOut = 0;
       toastr.options.timeOut = options.timeOut || 5000;
