@@ -1347,6 +1347,7 @@
         title: options.title || "Información Importante"
       };
       $.extend(opts, options);
+      toastr.clear();
       return this.showMessage(opts);
     };
 
