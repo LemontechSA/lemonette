@@ -27,6 +27,7 @@ class @Lemonette.NotificationsModule extends Lemonette.Module
       showMethod: 'slideDown'
       title: options.title || "Información Importante"
     $.extend opts, options
+    toastr.clear()
     @showMessage(opts)
 
   ###  
