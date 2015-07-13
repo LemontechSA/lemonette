@@ -1755,10 +1755,10 @@
       }
       return new Handlebars.SafeString(JST['shared/inputs/' + partial](element));
     });
-    Handlebars.registerHelper('currency', function(amount, format) {
+    Handlebars.registerHelper('formatMoney', function(amount, format) {
       return new Handlebars.SafeString(accounting.formatMoney(amount, format));
     });
-    return Handlebars.registerHelper('num', function(number, format) {
+    return Handlebars.registerHelper('formatNumber', function(number, format) {
       return new Handlebars.SafeString(accounting.formatNumber(number, format));
     });
   })(Handlebars, i18n, moment, accounting);
