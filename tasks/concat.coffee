@@ -19,6 +19,7 @@ module.exports = (grunt) ->
         'bower_components/toastr/toastr.min.js'
         'bower_components/intro.js/minified/intro.min.js'
         'bower_components/jquery.cookie/jquery.cookie.js'
+        'bower_components/accounting/accounting.min.js'
       ]
       dest: "<%= grunt.option('dest') %>/scripts/vendor.js"
     ]
@@ -31,5 +32,5 @@ module.exports = (grunt) ->
         'app/scripts/libs/googiespell/googiespell_multiple.js'
         'app/scripts/libs/googiespell/googiespell.js'
       ]
-      dest: "<%= grunt.option('dest') %>/scripts/lemonette.spell.js" 
+      dest: "<%= grunt.option('dest') %>/scripts/lemonette.spell.js"
     ]
