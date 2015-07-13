@@ -5,7 +5,7 @@ module.exports = (grunt) ->
 
   scripts:
     files: ['app/scripts/**/*.coffee']
-    tasks: ['directives', 'coffee:compile', 'clean:scripts']
+    tasks: ['directives', 'coffee:compile', 'clean:scripts', 'codo']
 
   templates:
     files: ['app/scripts/**/*.haml']

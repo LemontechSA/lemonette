@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset='UTF-8'>
+  <title>Documentation</title>
+  <script src='../../javascript/application.js'></script>
+  <script src='../../javascript/search.js'></script>
+  <link rel='stylesheet' href='../../stylesheets/application.css' type='text/css'>
+</head>
+  <body>
+    <div id='base' data-path='../../'></div>
+<div id='header'>
+  <div id='menu'>
+    <a href='../../extra/README.md.html' title='Codo'>
+      Codo
+    </a>
+    &raquo;
+    <a href='../../alphabetical_index.html' title='Index'>
+      Index
+    </a>
+    &raquo;
+    <span class='title'>Lemonette</span>
+    &raquo;
+    <span class='title'>D</span>
+  </div>
+</div>
+    <div id='content'>
+      <h1>
+        Class:
+        Lemonette.D
+      </h1>
+      <table class='box'>
+        <tr>
+          <td>Defined in:</td>
+          <td>app&#47;scripts&#47;application&#47;date&#47;date_helper.coffee</td>
+        </tr>
+      </table>
+      <h2>Overview</h2>
+      <div class='docstring'>
+  <p>D a spiced Date</p>
+  <div class='examples'>
+    <h3>Examples:</h3>
+    <h4>
+      Using D
+    </h4>
+    <pre><code class='coffeescript'>App = new Lemonette.Application
+spicedDate = new App.DateHelper.D
+console.log d.isToday() # =&gt; true
+console.log d.toString() # =&gt; 2015-02-26
+console.log d.startOfWeek() # =&gt; 2015-02-23
+console.log d.endOfWeek() # =&gt; 2015-03-01</code></pre>
+  </div>
+</div>
+<div class='tags'>
+</div>
+      <h2>Variables Summary</h2>
+      <dl class='constants'>
+  <dt id='_d-variable'>
+    _d
+    =
+  </dt>
+  <dd>
+    <pre><code class='coffeescript'>{}</code></pre>
+    <div class='tags'>
+</div>
+  </dd>
+</dl>
+      <h2>Instance Method Summary</h2>
+      <ul class='summary'>
+  <li>
+    <span class='signature'>
+      <a href='#toString-dynamic'>
+        #
+(String)
+<b>toString</b><span>(format = &#39;YYYY-MM-DD&#39;)</span>
+      </a>
+    </span>
+    <span class='desc'>
+      Format the date 
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#isToday-dynamic'>
+        #
+(Boolean)
+<b>isToday</b><span>()</span>
+      </a>
+    </span>
+    <span class='desc'>
+      Test if date is today 
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#startOfWeek-dynamic'>
+        #
+(Lemonette.D)
+<b>startOfWeek</b><span>()</span>
+      </a>
+    </span>
+    <span class='desc'>
+      Start of week starting with D Date. 
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#endOfWeek-dynamic'>
+        #
+(Lemonette.D)
+<b>endOfWeek</b><span>()</span>
+      </a>
+    </span>
+    <span class='desc'>
+      End of week starting with D Date. 
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#date-dynamic'>
+        #
+(Date)
+<b>date</b><span>()</span>
+      </a>
+    </span>
+    <span class='desc'>
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#s-dynamic'>
+        #
+(String)
+<b>s</b><span>(format = &#39;YYYY-MM-DD&#39;)</span>
+      </a>
+    </span>
+    <span class='desc'>
+    </span>
+  </li>
+  <li>
+    <span class='signature'>
+      <a href='#d-dynamic'>
+        #
+(Date)
+<b>d</b><span>()</span>
+      </a>
+    </span>
+    <span class='desc'>
+    </span>
+  </li>
+</ul>
+      <h2>Constructor Details</h2>
+      <div class='methods'>
+  <div class='method_details'>
+    <p class='signature' id='constructor-dynamic'>
+      #
+(void)
+<b>constructor</b><span>(date)</span>
+      <br>
+    </p>
+    <div class='tags'>
+  <h3>Parameters:</h3>
+  <ul class='param'>
+    <li>
+      <span class='name'>date</span>
+      <span class='type'>
+        (
+          <tt>String</tt>
+        )
+      </span>
+      &mdash;
+      <span class='desc'>or [Date] or [moment] or nothing asumes (new Date()) </span>
+    </li>
+  </ul>
+</div>
+  </div>
+</div>
+      <h2>Instance Method Details</h2>
+      <div class='methods'>
+  <div class='method_details'>
+    <p class='signature' id='toString-dynamic'>
+      #
+(String)
+<b>toString</b><span>(format = &#39;YYYY-MM-DD&#39;)</span>
+      <br>
+    </p>
+    <div class='docstring'>
+  <p>Format the date</p>
+</div>
+<div class='tags'>
+  <h3>Parameters:</h3>
+  <ul class='param'>
+    <li>
+      <span class='name'>format</span>
+      <span class='type'>
+        (
+          <tt>String</tt>
+        )
+      </span>
+      &mdash;
+      <span class='desc'>optional, ex: &quot;YYYY-MM-DD&quot; </span>
+    </li>
+  </ul>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (
+        <tt>String</tt>
+      )
+      &mdash;
+      <span class='desc'>ex: 2015-02-25 </span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='isToday-dynamic'>
+      #
+(Boolean)
+<b>isToday</b><span>()</span>
+      <br>
+    </p>
+    <div class='docstring'>
+  <p>Test if date is today</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (
+        <tt>Boolean</tt>
+      )
+      &mdash;
+      <span class='desc'>true: if is today, false:if is not today </span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='startOfWeek-dynamic'>
+      #
+(Lemonette.D)
+<b>startOfWeek</b><span>()</span>
+      <br>
+    </p>
+    <div class='docstring'>
+  <p>Start of week starting with D Date.</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (
+        <tt><a href='../../class/Lemonette/D.html'>Lemonette.D</a></tt>
+      )
+      &mdash;
+      <span class='desc'>instance with first day of week  </span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='endOfWeek-dynamic'>
+      #
+(Lemonette.D)
+<b>endOfWeek</b><span>()</span>
+      <br>
+    </p>
+    <div class='docstring'>
+  <p>End of week starting with D Date.</p>
+</div>
+<div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (
+        <tt><a href='../../class/Lemonette/D.html'>Lemonette.D</a></tt>
+      )
+      &mdash;
+      <span class='desc'>instance with end day of week  </span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='date-dynamic'>
+      #
+(Date)
+<b>date</b><span>()</span>
+      <br>
+    </p>
+    <div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (
+        <tt>Date</tt>
+      )
+      &mdash;
+      <span class='desc'>Javascript date object of D  </span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='s-dynamic'>
+      #
+(String)
+<b>s</b><span>(format = &#39;YYYY-MM-DD&#39;)</span>
+      <br>
+    </p>
+    <div class='tags'>
+  <h3>Parameters:</h3>
+  <ul class='param'>
+    <li>
+      <span class='name'>Format</span>
+      <span class='type'>
+        (
+          <tt>String</tt>
+        )
+      </span>
+    </li>
+  </ul>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (
+        <tt>String</tt>
+      )
+      &mdash;
+      <span class='desc'>Alias of toString() method </span>
+    </li>
+  </ul>
+</div>
+  </div>
+  <div class='method_details'>
+    <p class='signature' id='d-dynamic'>
+      #
+(Date)
+<b>d</b><span>()</span>
+      <br>
+    </p>
+    <div class='tags'>
+  <h3>Returns:</h3>
+  <ul class='return'>
+    <li>
+      <span class='type'></span>
+      (
+        <tt>Date</tt>
+      )
+      &mdash;
+      <span class='desc'>Alias of date() method </span>
+    </li>
+  </ul>
+</div>
+  </div>
+</div>
+    </div>
+    <div id='footer'>
+  February 27, 15 17:46:33 by
+  <a href='https://github.com/coffeedoc/codo' title='CoffeeScript API documentation generator'>
+    Codo
+  </a>
+  2.0.9
+  &#10034;
+  Press H to see the keyboard shortcuts
+  &#10034;
+  <a href='http://twitter.com/netzpirat' target='_parent'>@netzpirat</a>
+  &#10034;
+  <a href='http://twitter.com/_inossidabile' target='_parent'>@_inossidabile</a>
+</div>
+<iframe id='search_frame'></iframe>
+<div id='fuzzySearch'>
+  <input type='text'>
+  <ol></ol>
+</div>
+<div id='help'>
+  <p>
+    Quickly fuzzy find classes, mixins, methods, file:
+  </p>
+  <ul>
+    <li>
+      <span>T</span>
+      Open fuzzy finder dialog
+    </li>
+  </ul>
+  <p>
+    Control the navigation frame:
+  </p>
+  <ul>
+    <li>
+      <span>L</span>
+      Toggle list view
+    </li>
+    <li>
+      <span>C</span>
+      Show class list
+    </li>
+    <li>
+      <span>I</span>
+      Show mixin list
+    </li>
+    <li>
+      <span>F</span>
+      Show file list
+    </li>
+    <li>
+      <span>M</span>
+      Show method list
+    </li>
+    <li>
+      <span>E</span>
+      Show extras list
+    </li>
+  </ul>
+  <p>
+    You can focus and blur the search input:
+  </p>
+  <ul>
+    <li>
+      <span>S</span>
+      Focus search input
+    </li>
+    <li>
+      <span>Esc</span>
+      Blur search input
+    </li>
+  </ul>
+</div>
+  </body>
+</html>

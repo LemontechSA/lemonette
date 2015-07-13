@@ -3,6 +3,6 @@ module.exports = (grunt) ->
     banner: "/*! <%= pkg.name %> <%= grunt.template.today(\"yyyy-mm-dd\") %> */\n"
   build:
     files: [
-      "<%= grunt.option('dest') %>/scripts/lemontend.min.js": "<%= grunt.option('dest') %>/scripts/lemontend.js"
-      "<%= grunt.option('dest') %>/scripts/lemontend.spell.min.js": "<%= grunt.option('dest') %>/scripts/lemontend.spell.js"
+      "<%= grunt.option('dest') %>/scripts/lemonette.min.js": "<%= grunt.option('dest') %>/scripts/lemonette.js"
+      "<%= grunt.option('dest') %>/scripts/lemonette.spell.min.js": "<%= grunt.option('dest') %>/scripts/lemonette.spell.js"
     ]
