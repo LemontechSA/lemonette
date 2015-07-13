@@ -1728,7 +1728,7 @@
     return this;
   };
 
-  (function(Handlebars, i18n, moment) {
+  (function(Handlebars, i18n, moment, accounting) {
     Handlebars.registerHelper('t', function(key) {
       var result;
       result = i18n.t(key);
@@ -1743,7 +1743,7 @@
     Handlebars.registerHelper('p', function(partial, element) {
       return new Handlebars.SafeString(JST[partial](element));
     });
-    return Handlebars.registerHelper('input', function(partial, element) {
+    Handlebars.registerHelper('input', function(partial, element) {
       if (element.hash) {
         element = element.hash;
       }
@@ -1755,6 +1755,12 @@
       }
       return new Handlebars.SafeString(JST['shared/inputs/' + partial](element));
     });
-  })(Handlebars, i18n, moment);
+    Handlebars.registerHelper('currency', function(amount, format) {
+      return new Handlebars.SafeString(accounting.formatMoney(amount, format));
+    });
+    return Handlebars.registerHelper('num', function(number, format) {
+      return new Handlebars.SafeString(accounting.formatNumber(number, format));
+    });
+  })(Handlebars, i18n, moment, accounting);
 
 }).call(this);
