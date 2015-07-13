@@ -9,3 +9,4 @@ bower
 .DS_Store
 bower_components
 dist/scripts/vendor.js
+dist/docs
