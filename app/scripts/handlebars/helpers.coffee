@@ -1,4 +1,4 @@
-do (Handlebars, i18n, moment) ->
+do (Handlebars, i18n, moment, accounting) ->
 
   # translation helper for templates, uses i18Next library
   Handlebars.registerHelper 't', (key) ->
@@ -24,3 +24,11 @@ do (Handlebars, i18n, moment) ->
     if element.type == 'select'
       element.collection.fetch()
     return new Handlebars.SafeString(JST['shared/inputs/' + partial](element))
+
+  # currency format helper with accounting
+  Handlebars.registerHelper 'currency', (amount, format) ->
+    return new Handlebars.SafeString(accounting.formatMoney(amount, format))
+
+  # number format helper with accounting
+  Handlebars.registerHelper 'num', (number, format) ->
+    return new Handlebars.SafeString(accounting.formatNumber(number, format))
