@@ -21,6 +21,7 @@
     function Application() {
       Application.__super__.constructor.apply(this, arguments);
       this.createModules();
+      this.createCommands();
     }
 
 
@@ -42,6 +43,17 @@
       var data;
       data = window.bootstrap_data || this.defaultData;
       return data[key];
+    };
+
+    Application.prototype.createCommands = function() {
+      return this.commands.setHandlerTracking = (function(_this) {
+        return function(action, callback) {
+          return _this.commands.setHandler(action, function() {
+            ga('send', 'event', 'action', action);
+            return callback.apply(callback, arguments);
+          });
+        };
+      })(this);
     };
 
     Application.prototype.navigate = function(route, options) {
