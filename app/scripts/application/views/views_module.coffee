@@ -33,6 +33,3 @@ class @Lemonette.ViewsModule extends Lemonette.Module
   Class {Lemonette.BackboneView}
   ###
   BackboneView: Lemonette.BackboneView
-
-CompositeView.prototype.asyncDownlad = Layout.asyncDownlad
-ItemView.prototype.asyncDownlad = Layout.asyncDownlad
