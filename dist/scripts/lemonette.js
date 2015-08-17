@@ -1741,10 +1741,6 @@
 
   })(Lemonette.Module);
 
-  CompositeView.prototype.asyncDownlad = Layout.asyncDownlad;
-
-  ItemView.prototype.asyncDownlad = Layout.asyncDownlad;
-
   Function.prototype.include = function(mixin) {
     var key, value, _ref;
     _ref = mixin.prototype;
