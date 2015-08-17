@@ -1574,13 +1574,24 @@
       return Layout.__super__.constructor.apply(this, arguments);
     }
 
-    Layout.prototype.asyncDownload = function($detonator, fileUrl, successCallback) {
+    Layout.prototype.asyncDownload = function($detonator, text, fileUrl) {
+      var $btn_icon, $btn_text, btn_class, icon_class, icon_text;
       $detonator.blur();
       $detonator.prop('disabled', true);
+      $btn_icon = $detonator.children('i');
+      $btn_text = $detonator.children('span');
+      btn_class = $detonator.prop('class');
+      icon_class = $btn_icon.prop('class');
+      icon_text = $btn_text.text();
+      $detonator.prop('class', 'btn btn-disabled');
+      $btn_icon.prop('class', 'fa fa-refresh fa-spin');
+      $btn_text.text(text);
       return $.fileDownload(fileUrl, {
         successCallback: function(url) {
           $detonator.prop('disabled', false);
-          successCallback();
+          $btn_icon.prop('class', icon_class);
+          $detonator.prop('class', btn_class);
+          $btn_text.text(icon_text);
         }
       });
     };
