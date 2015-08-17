@@ -1574,6 +1574,17 @@
       return Layout.__super__.constructor.apply(this, arguments);
     }
 
+    Layout.prototype.asyncDownload = function($detonator, fileUrl, successCallback) {
+      $detonator.blur();
+      $detonator.prop('disabled', true);
+      return $.fileDownload(fileUrl, {
+        successCallback: function(url) {
+          $detonator.prop('disabled', false);
+          successCallback();
+        }
+      });
+    };
+
     return Layout;
 
   })(Marionette.Layout);
@@ -1729,6 +1740,10 @@
     return ViewsModule;
 
   })(Lemonette.Module);
+
+  CompositeView.prototype.asyncDownlad = Layout.asyncDownlad;
+
+  ItemView.prototype.asyncDownlad = Layout.asyncDownlad;
 
   Function.prototype.include = function(mixin) {
     var key, value, _ref;
