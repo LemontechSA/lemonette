@@ -1129,7 +1129,7 @@
         methodName = this.asyncEvents[asyncKey];
         eventType = asyncKey.split(' ')[0];
         eventElement = $(asyncKey.split(' ')[1]);
-        _results.push(this.listenTo(eventElement, eventType, (function(_this) {
+        _results.push(eventElement.on(eventType, (function(_this) {
           return function(event) {
             _this.triggerAsync(eventElement, asyncKey);
             return _this[methodName](event, function() {

@@ -12,7 +12,7 @@ class @Lemonette.Processes
 			eventType = asyncKey.split(' ')[0]
 			eventElement = $(asyncKey.split(' ')[1])
 			
-			@listenTo eventElement, eventType, (event) =>
+			eventElement.on eventType, (event) =>
 				@triggerAsync(eventElement, asyncKey)
 				@[methodName](event, () =>
 					restore(eventElement, asyncKey)
