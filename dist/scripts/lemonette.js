@@ -1174,7 +1174,7 @@
       return icon_original_classes;
     };
 
-    Processes.prototype.triggerLoadingOnText = function($text, $loadingText) {
+    Processes.prototype.triggerLoadingOnText = function($text, loadingText) {
       var text_original_text;
       text_original_text = $text.text();
       $text.text(loadingText);

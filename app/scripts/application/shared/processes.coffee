@@ -46,7 +46,7 @@ class @Lemonette.Processes
 
 		icon_original_classes
 
-	triggerLoadingOnText: ($text, $loadingText) ->
+	triggerLoadingOnText: ($text, loadingText) ->
 		text_original_text = $text.text()
 		$text.text(loadingText)
 
