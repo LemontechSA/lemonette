@@ -8,11 +8,12 @@ class @Lemonette.Application extends Backbone.Marionette.Application
     current_user: null,
     api_token: null,
     default_lang: 'es'
-  
+
   constructor: ->
     super
     @createModules()
-  
+    @createCommands()
+
   ###
   Best way to extend Marionette with an Instance of App
   ###
@@ -28,6 +29,12 @@ class @Lemonette.Application extends Backbone.Marionette.Application
   bootstrap: (key) ->
     data = window.bootstrap_data || @defaultData
     data[key]
+
+  createCommands: ->
+    @commands.setHandlerTracking = (action, callback) =>
+      @commands.setHandler action, ->
+        ga 'send', 'event', 'action', action
+        callback.apply callback, arguments
 
   navigate: (route, options = {}) ->
     Backbone.history.navigate route, options
