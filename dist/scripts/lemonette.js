@@ -1100,6 +1100,117 @@
 
 
   /*
+  Create an extension for views
+  empower the view to:
+  * trigger process blocking the ui components.
+   */
+
+  this.Lemonette.Processes = (function() {
+    function Processes() {}
+
+    Processes.prototype.process = function($detonator, $icon, $text, loadingText, process) {
+      var backup;
+      if ($icon == null) {
+        $icon = null;
+      }
+      if ($text == null) {
+        $text = null;
+      }
+      if (loadingText == null) {
+        loadingText = null;
+      }
+      if (process == null) {
+        process = null;
+      }
+      backup = this.triggerLoading($detonator, $icon, $text, loadingText);
+      if (process) {
+        return process();
+      }
+    };
+
+    Processes.prototype.triggerLoading = function($detonator, $icon, $text, loadingText) {
+      var backup;
+      if ($icon == null) {
+        $icon = null;
+      }
+      if ($text == null) {
+        $text = null;
+      }
+      if (loadingText == null) {
+        loadingText = null;
+      }
+      backup = {};
+      backup.detonator_classes = this.triggerLoadingOnDetonator($detonator);
+      if ($icon) {
+        backup.icon_classes = this.triggerLoadingOnIcon($icon);
+      }
+      if ($text && loadingText) {
+        backup.original_text = this.triggerLoadingOnText($text, loadingText);
+      }
+      return backup;
+    };
+
+    Processes.prototype.restoreLoading = function(backup, $detonator, $icon, $text, loadingText) {
+      if ($icon == null) {
+        $icon = null;
+      }
+      if ($text == null) {
+        $text = null;
+      }
+      if (loadingText == null) {
+        loadingText = null;
+      }
+      this.restoreLoadingOnDetonator(backup.detonator_classes, $detonator);
+      if ($icon) {
+        this.restoreLoadingOnIcon($icon);
+      }
+      if ($text && loadingText) {
+        return this.restoreLoadingOnText($text, loadingText);
+      }
+    };
+
+    Processes.prototype.triggerLoadingOnDetonator = function(backup_data, $detonator) {
+      var detonator_original_classes;
+      $detonator.blur();
+      $detonator.prop('disabled', true);
+      detonator_original_classes = $detonator.prop('class');
+      $detonator.removeClass(detonator_original_classes).addClass('btn btn-disabled');
+      return detonator_original_classes;
+    };
+
+    Processes.prototype.triggerLoadingOnIcon = function(backup_data, $icon) {
+      var icon_original_classes;
+      icon_original_classes = $icon.prop('class');
+      $icon.removeClass(icon_original_classes).addClass('fa fa-refresh fa-spin');
+      return icon_original_classes;
+    };
+
+    Processes.prototype.triggerLoadingOnText = function(backup_data, $text, $loadingText) {
+      var text_original_text;
+      text_original_text = $text.text();
+      $text.text(loadingText);
+      return text_original_text;
+    };
+
+    Processes.prototype.restoreLoadingOnDetonator = function(backup_classes, $detonator) {
+      $detonator.prop('disabled', false);
+      return $detonator.removeClass($detonator.prop('class')).addClass(backup_classes);
+    };
+
+    Processes.prototype.restoreLoadingOnIcon = function(backup_classes, $icon) {
+      return $icon.removeClass($icon.prop('class')).addClass(backup_classes);
+    };
+
+    Processes.prototype.restoreLoadingOnText = function(backup_text, $text) {
+      return $text.text(backup_text);
+    };
+
+    return Processes;
+
+  })();
+
+
+  /*
   This module contains the base classes for spiced routers
   @see Lemonette.Module
    */
