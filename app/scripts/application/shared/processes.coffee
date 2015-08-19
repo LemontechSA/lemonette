@@ -6,10 +6,6 @@ empower the view to:
 ###
 class @Lemonette.Processes
 
-	process: ($detonator, $icon = null, $text = null, loadingText = null, process = null) ->
-		backup = @triggerLoading($detonator, $icon, $text, loadingText)
-		process() if process
-
 	triggerLoading: ($detonator, $icon = null, $text = null, loadingText = null) ->
 		backup = {}
 
@@ -23,14 +19,14 @@ class @Lemonette.Processes
 
 		backup
 
-	restoreLoading: (backup, $detonator, $icon = null, $text = null, loadingText = null) ->
+	restoreLoading: (backup, $detonator, $icon = null, $text = null) ->
 		@restoreLoadingOnDetonator(backup.detonator_classes, $detonator)
 
 		if $icon
 			@restoreLoadingOnIcon($icon)
 
-		if $text && loadingText
-			@restoreLoadingOnText($text, loadingText)
+		if $text
+			@restoreLoadingOnText($text)
 
 	triggerLoadingOnDetonator: (backup_data, $detonator) ->
 		$detonator.blur()
