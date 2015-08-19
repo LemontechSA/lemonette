@@ -1,12 +1,12 @@
 ###
 Create an extension for views
 empower the view to:
-* trigger async process blocking the ui components.
+* trigger process blocking the ui components.
 
 ###
-class @Lemonette.AsyncProcesses
+class @Lemonette.Processes
 
-	asyncProcess: ($detonator, url, $icon = null, $text = null, loadingText = null, process = null) ->
+	process: ($detonator, url, $icon = null, $text = null, loadingText = null, process = null) ->
 		backup = @triggerLoading($detonator, $icon, $text, loadingText)
 		process() if process
 
