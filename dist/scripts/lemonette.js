@@ -1112,6 +1112,123 @@
 
 
   /*
+  Create an extension for views
+  empower the view to:
+  * trigger process blocking the ui components.
+   */
+
+  this.Lemonette.Processes = (function() {
+    function Processes() {}
+
+    Processes.prototype.initProcesses = function() {
+      var asyncKey, eventElement, eventType, methodName, _i, _len, _ref, _results;
+      _ref = Object.keys(this.asyncEvents);
+      _results = [];
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        asyncKey = _ref[_i];
+        methodName = this.asyncEvents[asyncKey];
+        eventType = asyncKey.split(' ')[0];
+        eventElement = $(asyncKey.split(' ')[1]);
+        _results.push(eventElement.on(eventType, (function(_this) {
+          return function(event) {
+            _this.triggerAsync(eventElement, asyncKey);
+            return _this[methodName](event, function() {
+              return restore(eventElement, asyncKey);
+            });
+          };
+        })(this)));
+      }
+      return _results;
+    };
+
+    Processes.prototype.triggerAsync = function(eventElement, asyncKey) {
+      return alert("loading " + asyncKey);
+    };
+
+    Processes.prototype.restore = function(eventElement, asyncKey) {
+      return alert("done " + asyncKey);
+    };
+
+    Processes.prototype.triggerLoading = function($detonator, $icon, $text, loadingText) {
+      var backup;
+      if ($icon == null) {
+        $icon = null;
+      }
+      if ($text == null) {
+        $text = null;
+      }
+      if (loadingText == null) {
+        loadingText = null;
+      }
+      backup = {};
+      backup.detonator_classes = this.triggerLoadingOnDetonator($detonator);
+      if ($icon) {
+        backup.icon_classes = this.triggerLoadingOnIcon($icon);
+      }
+      if ($text && loadingText) {
+        backup.original_text = this.triggerLoadingOnText($text, loadingText);
+      }
+      return backup;
+    };
+
+    Processes.prototype.restoreLoading = function(backup, $detonator, $icon, $text) {
+      if ($icon == null) {
+        $icon = null;
+      }
+      if ($text == null) {
+        $text = null;
+      }
+      this.restoreLoadingOnDetonator(backup.detonator_classes, $detonator);
+      if ($icon) {
+        this.restoreLoadingOnIcon(backup.icon_classes, $icon);
+      }
+      if ($text) {
+        return this.restoreLoadingOnText(backup.original_text, $text);
+      }
+    };
+
+    Processes.prototype.triggerLoadingOnDetonator = function($detonator) {
+      var detonator_original_classes;
+      $detonator.blur();
+      $detonator.prop('disabled', true);
+      detonator_original_classes = $detonator.prop('class');
+      $detonator.removeClass(detonator_original_classes).addClass('btn btn-disabled');
+      return detonator_original_classes;
+    };
+
+    Processes.prototype.triggerLoadingOnIcon = function($icon) {
+      var icon_original_classes;
+      icon_original_classes = $icon.prop('class');
+      $icon.removeClass(icon_original_classes).addClass('fa fa-refresh fa-spin');
+      return icon_original_classes;
+    };
+
+    Processes.prototype.triggerLoadingOnText = function($text, loadingText) {
+      var text_original_text;
+      text_original_text = $text.text();
+      $text.text(loadingText);
+      return text_original_text;
+    };
+
+    Processes.prototype.restoreLoadingOnDetonator = function(backup_classes, $detonator) {
+      $detonator.prop('disabled', false);
+      return $detonator.removeClass($detonator.prop('class')).addClass(backup_classes);
+    };
+
+    Processes.prototype.restoreLoadingOnIcon = function(backup_classes, $icon) {
+      return $icon.removeClass($icon.prop('class')).addClass(backup_classes);
+    };
+
+    Processes.prototype.restoreLoadingOnText = function(backup_text, $text) {
+      return $text.text(backup_text);
+    };
+
+    return Processes;
+
+  })();
+
+
+  /*
   This module contains the base classes for spiced routers
   @see Lemonette.Module
    */
@@ -1143,6 +1260,13 @@
      */
 
     SharedModule.prototype.LiveCollection = Lemonette.LiveCollection;
+
+
+    /*
+    Class {Lemonette.Processes}
+     */
+
+    SharedModule.prototype.Processes = Lemonette.Processes;
 
     return SharedModule;
 
