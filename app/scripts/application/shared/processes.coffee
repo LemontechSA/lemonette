@@ -23,10 +23,10 @@ class @Lemonette.Processes
 		@restoreLoadingOnDetonator(backup.detonator_classes, $detonator)
 
 		if $icon
-			@restoreLoadingOnIcon($icon)
+			@restoreLoadingOnIcon(backup.icon_classes, $icon)
 
 		if $text
-			@restoreLoadingOnText($text)
+			@restoreLoadingOnText(backup.original_text, $text)
 
 	triggerLoadingOnDetonator: ($detonator) ->
 		$detonator.blur()

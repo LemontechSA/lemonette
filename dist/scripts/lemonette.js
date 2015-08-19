@@ -1151,10 +1151,10 @@
       }
       this.restoreLoadingOnDetonator(backup.detonator_classes, $detonator);
       if ($icon) {
-        this.restoreLoadingOnIcon($icon);
+        this.restoreLoadingOnIcon(backup.icon_classes, $icon);
       }
       if ($text) {
-        return this.restoreLoadingOnText($text);
+        return this.restoreLoadingOnText(backup.original_text, $text);
       }
     };
 
