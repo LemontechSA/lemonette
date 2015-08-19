@@ -13,12 +13,12 @@ class @Lemonette.Processes
 			eventElement = $(asyncKey.split(' ')[1])
 			
 			@listenTo eventElement, eventType, (event) =>
-				@trigger(eventElement, asyncKey)
+				@triggerAsync(eventElement, asyncKey)
 				@[methodName](event, () =>
 					restore(eventElement, asyncKey)
 				)
 
-	trigger: (eventElement, asyncKey) ->
+	triggerAsync: (eventElement, asyncKey) ->
 		alert("loading #{asyncKey}")
 
 	restore: (eventElement, asyncKey) ->

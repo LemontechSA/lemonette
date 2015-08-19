@@ -1131,7 +1131,7 @@
         eventElement = $(asyncKey.split(' ')[1]);
         _results.push(this.listenTo(eventElement, eventType, (function(_this) {
           return function(event) {
-            _this.trigger(eventElement, asyncKey);
+            _this.triggerAsync(eventElement, asyncKey);
             return _this[methodName](event, function() {
               return restore(eventElement, asyncKey);
             });
@@ -1141,7 +1141,7 @@
       return _results;
     };
 
-    Processes.prototype.trigger = function(eventElement, asyncKey) {
+    Processes.prototype.triggerAsync = function(eventElement, asyncKey) {
       return alert("loading " + asyncKey);
     };
 
