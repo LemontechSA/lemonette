@@ -1120,26 +1120,6 @@
   this.Lemonette.Processes = (function() {
     function Processes() {}
 
-    Processes.prototype.process = function($detonator, $icon, $text, loadingText, process) {
-      var backup;
-      if ($icon == null) {
-        $icon = null;
-      }
-      if ($text == null) {
-        $text = null;
-      }
-      if (loadingText == null) {
-        loadingText = null;
-      }
-      if (process == null) {
-        process = null;
-      }
-      backup = this.triggerLoading($detonator, $icon, $text, loadingText);
-      if (process) {
-        return process();
-      }
-    };
-
     Processes.prototype.triggerLoading = function($detonator, $icon, $text, loadingText) {
       var backup;
       if ($icon == null) {
@@ -1162,22 +1142,19 @@
       return backup;
     };
 
-    Processes.prototype.restoreLoading = function(backup, $detonator, $icon, $text, loadingText) {
+    Processes.prototype.restoreLoading = function(backup, $detonator, $icon, $text) {
       if ($icon == null) {
         $icon = null;
       }
       if ($text == null) {
         $text = null;
       }
-      if (loadingText == null) {
-        loadingText = null;
-      }
       this.restoreLoadingOnDetonator(backup.detonator_classes, $detonator);
       if ($icon) {
         this.restoreLoadingOnIcon($icon);
       }
-      if ($text && loadingText) {
-        return this.restoreLoadingOnText($text, loadingText);
+      if ($text) {
+        return this.restoreLoadingOnText($text);
       }
     };
 
