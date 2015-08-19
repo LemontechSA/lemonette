@@ -1120,6 +1120,35 @@
   this.Lemonette.Processes = (function() {
     function Processes() {}
 
+    Processes.prototype.initProcesses = function() {
+      var asyncKey, eventElement, eventType, methodName, _i, _len, _ref, _results;
+      _ref = Object.keys(this.asyncEvents);
+      _results = [];
+      for (_i = 0, _len = _ref.length; _i < _len; _i++) {
+        asyncKey = _ref[_i];
+        methodName = this.asyncEvents[asyncKey];
+        eventType = asyncKey.split(' ')[0];
+        eventElement = $(asyncKey.split(' ')[1]);
+        _results.push(this.listenTo(eventElement, eventType, (function(_this) {
+          return function(event) {
+            _this.trigger(eventElement, asyncKey);
+            return _this[methodName](event, function() {
+              return restore(eventElement, asyncKey);
+            });
+          };
+        })(this)));
+      }
+      return _results;
+    };
+
+    Processes.prototype.trigger = function(eventElement, asyncKey) {
+      return alert("loading " + asyncKey);
+    };
+
+    Processes.prototype.restore = function(eventElement, asyncKey) {
+      return alert("done " + asyncKey);
+    };
+
     Processes.prototype.triggerLoading = function($detonator, $icon, $text, loadingText) {
       var backup;
       if ($icon == null) {
