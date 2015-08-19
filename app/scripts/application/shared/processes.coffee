@@ -28,7 +28,7 @@ class @Lemonette.Processes
 		if $text
 			@restoreLoadingOnText($text)
 
-	triggerLoadingOnDetonator: (backup_data, $detonator) ->
+	triggerLoadingOnDetonator: ($detonator) ->
 		$detonator.blur()
 		$detonator.prop('disabled', true)
 		detonator_original_classes = $detonator.prop('class')
@@ -38,7 +38,7 @@ class @Lemonette.Processes
 
 		detonator_original_classes
 
-	triggerLoadingOnIcon: (backup_data, $icon) ->
+	triggerLoadingOnIcon: ($icon) ->
 		icon_original_classes = $icon.prop('class')
 		$icon.removeClass(
 			icon_original_classes
@@ -46,7 +46,7 @@ class @Lemonette.Processes
 
 		icon_original_classes
 
-	triggerLoadingOnText: (backup_data, $text, $loadingText) ->
+	triggerLoadingOnText: ($text, $loadingText) ->
 		text_original_text = $text.text()
 		$text.text(loadingText)
 

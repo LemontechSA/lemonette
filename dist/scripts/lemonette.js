@@ -1158,7 +1158,7 @@
       }
     };
 
-    Processes.prototype.triggerLoadingOnDetonator = function(backup_data, $detonator) {
+    Processes.prototype.triggerLoadingOnDetonator = function($detonator) {
       var detonator_original_classes;
       $detonator.blur();
       $detonator.prop('disabled', true);
@@ -1167,14 +1167,14 @@
       return detonator_original_classes;
     };
 
-    Processes.prototype.triggerLoadingOnIcon = function(backup_data, $icon) {
+    Processes.prototype.triggerLoadingOnIcon = function($icon) {
       var icon_original_classes;
       icon_original_classes = $icon.prop('class');
       $icon.removeClass(icon_original_classes).addClass('fa fa-refresh fa-spin');
       return icon_original_classes;
     };
 
-    Processes.prototype.triggerLoadingOnText = function(backup_data, $text, $loadingText) {
+    Processes.prototype.triggerLoadingOnText = function($text, $loadingText) {
       var text_original_text;
       text_original_text = $text.text();
       $text.text(loadingText);
