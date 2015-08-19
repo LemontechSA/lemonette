@@ -1,6 +1,7 @@
 #= require auto_fillable.coffee
 #= require cacheable_collection.coffee
 #= require live_collection.coffee
+#= require processes.coffee
 
 ###
 This module contains the base classes for spiced routers
