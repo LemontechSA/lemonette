@@ -6,7 +6,7 @@ empower the view to:
 ###
 class @Lemonette.Processes
 
-	process: ($detonator, url, $icon = null, $text = null, loadingText = null, process = null) ->
+	process: ($detonator, $icon = null, $text = null, loadingText = null, process = null) ->
 		backup = @triggerLoading($detonator, $icon, $text, loadingText)
 		process() if process
 
