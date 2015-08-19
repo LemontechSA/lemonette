@@ -1255,6 +1255,13 @@
 
     SharedModule.prototype.LiveCollection = Lemonette.LiveCollection;
 
+
+    /*
+    Class {Lemonette.Processes}
+     */
+
+    SharedModule.prototype.Processes = Lemonette.Processes;
+
     return SharedModule;
 
   })(Lemonette.Module);

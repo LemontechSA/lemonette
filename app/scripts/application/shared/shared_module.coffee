@@ -19,3 +19,7 @@ class @Lemonette.SharedModule extends Lemonette.Module
   Class {Lemonette.LiveCollection}
   ###  
   LiveCollection: Lemonette.LiveCollection
+  ###
+  Class {Lemonette.Processes}
+  ###
+  Processes: Lemonette.Processes
