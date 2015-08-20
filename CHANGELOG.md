@@ -1,5 +1,9 @@
 # Changelog
 
+## Hotfix: 1.2.1
+Wed 2015, Aug 5th.
+* **New** Add process shared utility
+
 ## Release: 1.2.0
 Wed 2015, Aug 5th.
 * **New** Add new command for tracking
