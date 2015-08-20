@@ -6,7 +6,7 @@ empower the view to:
 ###
 class @Lemonette.Processes
 
-  triggerLoading: ($detonator, $icon = null, $text = null, loadingText = null) ->
+  triggerLoading: ($detonator, $icon, $text, loadingText) ->
     backup =
       detonator_classes: @triggerLoadingOnDetonator($detonator)
 
@@ -18,7 +18,7 @@ class @Lemonette.Processes
 
     backup
 
-  restoreLoading: (backup, $detonator, $icon = null, $text = null) ->
+  restoreLoading: (backup, $detonator, $icon, $text) ->
     @restoreLoadingOnDetonator(backup.detonator_classes, $detonator)
 
     if $icon
