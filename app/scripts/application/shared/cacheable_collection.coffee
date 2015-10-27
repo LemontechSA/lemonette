@@ -1,9 +1,9 @@
 ###
 Backbone.Collection extension to store a collection in localStorage.
 
-This collection is synced with server everytime, 
+This collection is synced with server everytime,
 but only get differences between localStorage and ApiResult.
-This collection add a posfix to endpoint url: "/updated?ts=" + (cacheTime) 
+This collection add a posfix to endpoint url: "/updated?ts=" + (cacheTime)
 to request for only new records
 @example
 
@@ -13,7 +13,7 @@ to request for only new records
       model: Models.Currency
 
 ###
-class @Lemonette.CacheableCollection extends Backbone.Collection    
+class @Lemonette.CacheableCollection extends Backbone.Collection
   initialize : ->
     @removedItems = {}
     @on 'remove', (model) =>
@@ -62,7 +62,7 @@ class @Lemonette.CacheableCollection extends Backbone.Collection
       url += '&' + @query() if @query and typeof @query == 'function'
       $.ajax(url,
         success: (data) =>
-          @set(data.results, {add: true, merge: true, remove: false});
+          @set(data.list, {add: true, merge: true, remove: false});
           @remove(@filter((model) ->
             data.ids.indexOf(model.id) < 0
           ))
