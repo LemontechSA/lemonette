@@ -848,9 +848,9 @@
   /*
   Backbone.Collection extension to store a collection in localStorage.
   
-  This collection is synced with server everytime, 
+  This collection is synced with server everytime,
   but only get differences between localStorage and ApiResult.
-  This collection add a posfix to endpoint url: "/updated?ts=" + (cacheTime) 
+  This collection add a posfix to endpoint url: "/updated?ts=" + (cacheTime)
   to request for only new records
   @example
   
@@ -954,7 +954,7 @@
           success: (function(_this) {
             return function(data) {
               var executeSuccess;
-              _this.set(data.results, {
+              _this.set(data.list, {
                 add: true,
                 merge: true,
                 remove: false
@@ -1122,15 +1122,6 @@
 
     Processes.prototype.triggerLoading = function($detonator, $icon, $text, loadingText) {
       var backup;
-      if ($icon == null) {
-        $icon = null;
-      }
-      if ($text == null) {
-        $text = null;
-      }
-      if (loadingText == null) {
-        loadingText = null;
-      }
       backup = {
         detonator_classes: this.triggerLoadingOnDetonator($detonator)
       };
@@ -1144,12 +1135,6 @@
     };
 
     Processes.prototype.restoreLoading = function(backup, $detonator, $icon, $text) {
-      if ($icon == null) {
-        $icon = null;
-      }
-      if ($text == null) {
-        $text = null;
-      }
       this.restoreLoadingOnDetonator(backup.detonator_classes, $detonator);
       if ($icon) {
         this.restoreLoadingOnIcon(backup.icon_classes, $icon);
