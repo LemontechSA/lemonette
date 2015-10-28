@@ -1,5 +1,10 @@
 # Changelog
 
+## Hotfix: 1.2.3
+Wednesday 2015, Oct 28th.
+
+* **Fix** Update dist files
+
 ## Hotfix: 1.2.2
 Tuesday 2015, Oct 27th.
 
