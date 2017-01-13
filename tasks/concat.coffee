@@ -21,6 +21,7 @@ module.exports = (grunt) ->
         'bower_components/intro.js/minified/intro.min.js'
         'bower_components/jquery.cookie/jquery.cookie.js'
         'bower_components/accounting/accounting.min.js'
+        'bower_components/prototypejs/dist/prototype.min.js'
       ]
       dest: "<%= grunt.option('dest') %>/scripts/vendor.js"
     ]

@@ -51,7 +51,8 @@
     "accounting": "~0.3.2",
     "backbone.babysitter": "^0.1.12",
     "backbone.wreqr": "^1.4.0",
-    "backbone.radio": "^2.0.0"
+    "backbone.radio": "^2.0.0",
+    "prototypejs": "^1.7.1"
   },
   "resolutions": {
     "underscore": "1.8.3",
