@@ -50,7 +50,8 @@
     "toastr": "~2.0.3",
     "accounting": "~0.3.2",
     "backbone.babysitter": "^0.1.12",
-    "backbone.wreqr": "^1.4.0"
+    "backbone.wreqr": "^1.4.0",
+    "backbone.radio": "^2.0.0"
   },
   "resolutions": {
     "underscore": "1.8.3",

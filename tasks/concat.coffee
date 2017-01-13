@@ -4,6 +4,7 @@ module.exports = (grunt) ->
       src: [
         'bower_components/jquery/dist/jquery.js'
         'bower_components/underscore/underscore.js'
+        'bower_components/backbone.radio/build/backbone.radio.js'
         'bower_components/backbone/backbone.js'
         'bower_components/backbone.babysitter/lib/backbone.babysitter.js'
         'bower_components/backbone.wreqr/lib/backbone.wreqr.js'
