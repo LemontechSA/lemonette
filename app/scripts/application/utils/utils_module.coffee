@@ -5,14 +5,14 @@ Pre-requisites:
   * IntroJs
 @see Lemonette.Module
 @see GoogieSpell is part of Lemonette.
-@see http://usablica.github.io/intro.js/ IntroJs 
+@see http://usablica.github.io/intro.js/ IntroJs
 ###
 class @Lemonette.UtilsModule extends Lemonette.Module
   ###
   Create Spellchecker object for an Input
-  This decorates a TextArea with a link to check spell 
+  This decorates a TextArea with a link to check spell
   @param [String] input the id of the html input tag
-  @param [Object] options 
+  @param [Object] options
   @option options [String] server_url the url of spell endpoint
   @return [GoogieSpell] object
   ###
@@ -21,7 +21,7 @@ class @Lemonette.UtilsModule extends Lemonette.Module
       alert 'You must add lemonette.spell.js to use Utils.SpellChecker'
       return
     options = options || {}
-    options.server_url = '/spell'
+    options.server_url = '//garfield.thetimebilling.com/spell'
     s = new GoogieSpell(options)
     s.decorateTextarea input
     return s
@@ -97,7 +97,7 @@ class @Lemonette.UtilsModule extends Lemonette.Module
 
   ###
     Show context help. It must be in another place!!!
-    @see http://usablica.github.io/intro.js/ IntroJs 
+    @see http://usablica.github.io/intro.js/ IntroJs
     @param [Integer] step help step for introJS Library
     @param [Boolean] force show help. Default: False
   ###
